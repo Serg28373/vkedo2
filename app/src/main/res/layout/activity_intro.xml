@@ -49,7 +49,7 @@
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="#150F16"
-        android:background="@drawable/button_white_blackshadow"
+        android:background="@drawable/button_outline_shadow"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
         android:layout_below="@id/topContent"
