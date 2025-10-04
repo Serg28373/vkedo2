@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/appIcon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/appName"
+            android:text="App Name"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnDownload"
+            android:text="Download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+        <!-- Ribbon: Age rating, Developer, Category -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+            <TextView android:text="Age: 12+" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="8dp"/>
+            <TextView android:text="By: DevName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="8dp"/>
+            <TextView android:text="Category: Games" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <!-- Ribbon: Screenshots -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView android:layout_width="120dp" android:layout_height="200dp" android:src="@mipmap/ic_launcher"/>
+                <ImageView android:layout_width="120dp" android:layout_height="200dp" android:src="@mipmap/ic_launcher"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+</ScrollView>
