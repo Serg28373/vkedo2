@@ -1,51 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F4F3">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="24dp">
+
+        <!-- Кнопка возврата (стрелка) -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Назад"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+
+        <!-- Иконка приложения -->
         <ImageView
-            android:id="@+id/appIcon"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:id="@+id/ivIcon"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="Иконка приложения"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnBack"
+            tools:src="@drawable/ic_placeholder" />
+
+        <!-- Название приложения -->
         <TextView
-            android:id="@+id/appName"
-            android:text="App Name"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btnDownload"
-            android:text="Download"
-            android:layout_width="match_parent"
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"/>
-        <!-- Ribbon: Age rating, Developer, Category -->
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Название приложения"
+            android:textColor="#150F16"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivIcon"
+            app:layout_constraintTop_toTopOf="@id/ivIcon" />
+
+        <!-- Компания -->
+        <TextView
+            android:id="@+id/tvCompany"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Компания"
+            android:textColor="#615E63"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivIcon"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <!-- Инфо-строка (size, age, category) -->
         <LinearLayout
+            android:id="@+id/infoRow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-            <TextView android:text="Age: 12+" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="8dp"/>
-            <TextView android:text="By: DevName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="8dp"/>
-            <TextView android:text="Category: Games" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <!-- Ribbon: Screenshots -->
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivIcon">
+
+            <!-- Контейнер для выравнивания текста -->
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView android:layout_width="120dp" android:layout_height="200dp" android:src="@mipmap/ic_launcher"/>
-                <ImageView android:layout_width="120dp" android:layout_height="200dp" android:src="@mipmap/ic_launcher"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25 МБ"
+                    android:textColor="#150F16"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Размер"
+                    android:textColor="#615E63"
+                    android:textSize="12sp"/>
             </LinearLayout>
-        </HorizontalScrollView>
-    </LinearLayout>
-</ScrollView>
+
+            <!-- Вертикальный разделитель -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#DCDCDC"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12+"
+                    android:textColor="#150F16"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Возраст"
+                    android:textColor="#615E63"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <!-- Вертикальный разделитель -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#DCDCDC"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Категория"
+                    android:textColor="#150F16"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Жанр"
+                    android:textColor="#615E63"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Кнопка "Установить" (на всю ширину) -->
+        <Button
+            android:id="@+id/btnInstall"
+            style="@style/AppButton"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:text="Установить"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/infoRow" />
+
+        <!-- Галерея скриншотов — листаем по горизонтали -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnInstall" />
+
+        <!-- Заголовок "Описание" -->
+        <TextView
+            android:id="@+id/labelDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Описание"
+            android:textColor="#150F16"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPager" />
+
+        <!-- Полное описание продукта -->
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="Здесь будет полное описание приложения. Длинный текст переносится автоматически."
+            android:textColor="#150F16"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

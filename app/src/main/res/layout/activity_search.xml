@@ -12,11 +12,13 @@
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
         <EditText
             android:id="@+id/searchQuery"
-            android:hint="Type an app name..."
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Type an app name..."
+            android:minHeight="48dp" />
         <TextView
             android:text="Popular Categories"
             android:textStyle="bold"

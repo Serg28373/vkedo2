@@ -1,25 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#F5F4F3">
 
+    <!-- Поисковая строка сверху -->
+    <ImageButton
+        android:id="@+id/btnSearchLine"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/white"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/search"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/search_line" />
+
+    <!-- Заголовок -->
     <TextView
-        android:text="App Classification"
-        android:textSize="20sp"
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Категории"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#150F16"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnSearchLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
+    <!-- Синий контейнер с 9 иконками -->
+    <LinearLayout
+        android:id="@+id/blueBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:background="#2196F3"
+        app:layout_constraintTop_toBottomOf="@id/heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Первая строка -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/icon01"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon01"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="общение"/>
+
+            <ImageButton
+                android:id="@+id/icon02"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon02"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="навигация"/>
+
+            <ImageButton
+                android:id="@+id/icon03"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon03"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="покупки"/>
+        </LinearLayout>
+
+        <!-- Вторая строка -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/icon04"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon04"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="питание"/>
+
+            <ImageButton
+                android:id="@+id/icon05"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon05"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="игры"/>
+
+            <ImageButton
+                android:id="@+id/icon06"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon06"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="питомцы"/>
+        </LinearLayout>
+
+        <!-- Третья строка -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/icon07"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon07"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="полезное"/>
+
+            <ImageButton
+                android:id="@+id/icon08"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon08"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="образование"/>
+
+            <ImageButton
+                android:id="@+id/icon09"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon09"
+                android:scaleType="centerInside"
+                android:background="@null"
+                android:contentDescription="финансы"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Реклама -->
+    <ImageButton
+        android:id="@+id/reclama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="reclama"
+        android:scaleType="centerCrop"
+        android:src="@drawable/reclama"
+        app:layout_constraintTop_toBottomOf="@id/blueBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Нижняя белая плашка -->
+    <View
+        android:id="@+id/bottomWhiteStrip"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Нижние кнопки -->
+    <ImageButton
+        android:id="@+id/btnHome"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/home"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:srcCompat="@drawable/house" />
+
+    <ImageButton
         android:id="@+id/btnSearch"
-        android:text="Search Apps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/white"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:srcCompat="@drawable/search_magnifying_glass" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnAccount"
-        android:text="Account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/white"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:srcCompat="@drawable/user" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

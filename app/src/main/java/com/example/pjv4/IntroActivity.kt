@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
+import com.example.pjv4.AppCardActivity
 
 class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +13,8 @@ class IntroActivity : AppCompatActivity() {
 
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         btnRegister.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            // ИЗМЕНЕНО: Теперь мы переходим на AppCardActivity для теста
+            startActivity(Intent(this, AppCardActivity::class.java))
         }
     }
 }

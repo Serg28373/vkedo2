@@ -11,9 +11,5 @@ class AccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
-
-        findViewById<Button>(R.id.btnMyApps).setOnClickListener {
-            startActivity(Intent(this, MyAppsActivity::class.java))
-        }
     }
 }
